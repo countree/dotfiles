@@ -1,0 +1,78 @@
+"使用leader键时永不超时
+"set notimeout
+"将leader键设置为空格，空格其实敲起来是最省力的，可以减少体力消耗
+let mapleader = " "
+set scrolloff=10
+"同步系统剪贴板
+set clipboard=unnamed,unnamedplus
+
+"当你键入搜索词时，vim会高亮显示与搜索词匹配的文本
+set incsearch
+"当你键入搜索词时，忽略大小写
+set ignorecase
+"当你键入搜索词时，vim会高亮显示与搜索词匹配的文本
+set hlsearch
+set which-key
+set number relativenumber
+set keep-english-in-normal
+
+set easymotion
+set NERDTree
+map <c-t> :NERDTree>
+
+imap jj <Esc>
+imap jk <Esc>
+nmap mk <action>(MethodUp)
+nmap mj <action>(MethodDown)
+" 显示错误信息 鼠标悬停在错误页面上的效果
+nnoremap <leader>es :action ShowErrorDescription<CR>
+
+nmap K <action>(NextTab)
+nmap J <action>(PreviousTab)
+" 撤回
+nnoremap U <C-r>
+" 复制到行尾
+nnoremap Y y$
+" 后退
+nnoremap H :action Back<CR>
+"前进"
+noremap  L :action Forward<CR>
+"改变量名
+nnoremap <leader>er :action RenameElement<CR>
+
+
+"取消搜索高亮显示(No Highlight)
+let g:WhichKeyDesc_NERDTreeOrNew_Highlight = "<leader>nl 取消搜索高亮"
+nmap <leader>nl :nohlsearch<CR>
+"========== p ==========
+"从剪切板粘贴到下面行
+let g:WhichKeyDesc_PasteClipboardDown = "<leader>p 从剪切板粘贴到下面行"
+nmap <leader>p "+p
+"从剪切板粘贴到上面行
+let g:WhichKeyDesc_PasteClipboardUp = "<leader>P 从剪切板粘贴到上面行"
+nmap <leader>P "+P
+"在可视模式中：从剪切板粘贴到下面行
+let g:WhichKeyDesc_PasteClipboardDown = "<leader>p 从剪切板粘贴到下面行"
+vmap <leader>p "+p
+"在可视模式中：从剪切板粘贴到上面行
+let g:WhichKeyDesc_PasteClipboardUp = "<leader>P 从剪切板粘贴到上面行"
+vmap <leader>P "+P
+
+nnoremap <leader>gd :action GotoDeclaration<CR>
+nnoremap <leader>gi :action GotoImplementation<CR>
+nnoremap <leader>gm :action GotoMember<CR>
+nnoremap <leader>gf :action GotoFiles<CR>
+nnoremap <leader>en :action GotoNextError<CR>
+nnoremap <leader>mo :action OverrideMethods<CR>
+nnoremap <leader>mi :action ImplementMethods<CR>
+nnoremap <leader>nn :action NavigateInFileGroup<CR>
+
+"========== z ==========
+let g:WhichKeyDesc_Zip = "<leader>z 折叠"
+
+"展开所有代码折叠区域(Ctrl + Shift + 加号键)
+let g:WhichKeyDesc_Zip_unZipAll = "<leader>zo 展开所有折叠"
+nmap <leader>zo <action>(ExpandAllRegions)
+"折叠所有代码折叠区域(Ctrl + Shift + 减号键)
+let g:WhichKeyDesc_Zip_ZipAll = "<leader>zc 折叠所有代码"
+nmap <leader>zi <action>(CollapseAllRegions)
