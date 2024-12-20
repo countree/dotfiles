@@ -27,6 +27,8 @@ nmap mj <action>(MethodDown)
 " 显示错误信息 鼠标悬停在错误页面上的效果
 nnoremap <leader>es :action ShowErrorDescription<CR>
 
+nnoremap <leader>q :q <CR>
+
 nmap K <action>(NextTab)
 nmap J <action>(PreviousTab)
 " 撤回
